@@ -5,7 +5,8 @@
   "license": "MIT",
   "workspaces": {
     "packages": [
-      "popup"
+      "popup",
+      "scripts"
     ],
     "nohoist": [
       "**"
@@ -15,10 +16,13 @@
     "dev": "concurrently -k \"yarn workspace popup dev\" ",
     "lint": "concurrently -k \"yarn workspace popup lint\" ",
     "test": "concurrently -k \"yarn workspace popup test\" ",
-    "build": "concurrently -k \"yarn workspace popup build\" "
+    "build": "yarn build:prebuild && yarn build:main",
+    "build:main": "yarn workspace popup build && yarn workspace scripts build && cp -pr scripts/out/* extensions/scripts",
+    "build:prebuild": "rimraf extensions/scripts && mkdir -p extensions/scripts"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "rimraf": "^3.0.2 ",
     "eslint": "^8.32.0",
     "prettier": "^2.8.4",
     "typescript": "^4.9.4"
