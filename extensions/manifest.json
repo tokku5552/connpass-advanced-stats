@@ -12,5 +12,15 @@
   ],
   "host_permissions": [
     "https://api.line.me/v2/bot/message/validate/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://connpass.com/event/*/stats/"
+      ],
+      "js": [
+        "./dist/content.js"
+      ]
+    }
   ]
 }
