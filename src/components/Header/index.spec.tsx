@@ -5,6 +5,6 @@ describe("Header", () => {
   test("rendering", () => {
     const { container } = render(<Header />);
 
-    expect(container.innerHTML).toMatch("LINE Message Validator");
+    expect(container.innerHTML).toMatch("connpass advanced stats");
   });
 });
