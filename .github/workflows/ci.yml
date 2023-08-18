@@ -3,7 +3,7 @@ on:
   pull_request:
     branches:
       - main
-      - develop
+      # - develop
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+
       - name: Cache node modules
         id: cache
         uses: actions/cache@v3
@@ -30,7 +30,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+
       - name: Cache node modules
         id: cache
         uses: actions/cache@v3
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+
       - name: Cache node modules
         id: cache
         uses: actions/cache@v3
@@ -65,7 +65,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
+
       - name: Cache node modules
         id: cache
         uses: actions/cache@v3
@@ -74,7 +74,7 @@ jobs:
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
       - name: build
         run: |
-          yarn export
+          yarn build
       - name: Update manifest.json
         run: |
           npx dot-json@1 extensions/manifest.json version dummy
