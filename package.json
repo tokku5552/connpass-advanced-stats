@@ -12,7 +12,8 @@
     ]
   },
   "scripts": {
-    "dev": "concurrently -k \"yarn workspace popup dev\" "
+    "dev": "concurrently -k \"yarn workspace popup dev\" ",
+    "build": "concurrently -k \"yarn workspace popup build\" "
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
