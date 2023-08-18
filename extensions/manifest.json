@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "connpass advanced stats",
+  "description": "connpass advanced stats",
+  "version": "1.0",
+  "action": {
+    "default_icon": "./dist/icon.png",
+    "default_popup": "./dist/index.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.line.me/v2/bot/message/validate/*"
+  ]
+}
