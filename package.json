@@ -13,6 +13,8 @@
   },
   "scripts": {
     "dev": "concurrently -k \"yarn workspace popup dev\" ",
+    "lint": "concurrently -k \"yarn workspace popup lint\" ",
+    "test": "concurrently -k \"yarn workspace popup test\" ",
     "build": "concurrently -k \"yarn workspace popup build\" "
   },
   "devDependencies": {
