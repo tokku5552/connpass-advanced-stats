@@ -1,5 +1,5 @@
 cicd:
-  - github/workflows/**/*
+  - .github/workflows/**/*
 code:
   - src/**/*
   - package.json
@@ -12,11 +12,11 @@ config:
   - jest.config.js
   - next.config.js
   - renovate.json
-  - tsconfig.json
+  - "**/tsconfig.json"
 public:
   - public/**/*
 documentation:
   - README.md
 dependencies:
-  - package.json
+  - "**/package.json"
   - yarn.lock
