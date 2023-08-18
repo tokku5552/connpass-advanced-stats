@@ -3,16 +3,6 @@
   "name": "connpass advanced stats",
   "description": "connpass advanced stats",
   "version": "1.0",
-  "action": {
-    "default_icon": "./popup/icon.png",
-    "default_popup": "./popup/index.html"
-  },
-  "permissions": [
-    "storage"
-  ],
-  "host_permissions": [
-    "https://api.line.me/v2/bot/message/validate/*"
-  ],
   "content_scripts": [
     {
       "matches": [
