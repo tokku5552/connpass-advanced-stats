@@ -4,8 +4,8 @@
   "description": "connpass advanced stats",
   "version": "1.0",
   "action": {
-    "default_icon": "./dist/icon.png",
-    "default_popup": "./dist/index.html"
+    "default_icon": "./popup/icon.png",
+    "default_popup": "./popup/index.html"
   },
   "permissions": [
     "storage"
@@ -19,7 +19,7 @@
         "https://connpass.com/event/*/stats/"
       ],
       "js": [
-        "./dist/content.js"
+        "./scripts/index.js"
       ]
     }
   ]
