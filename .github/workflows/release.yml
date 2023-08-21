@@ -43,9 +43,10 @@ jobs:
           yarn install
       - uses: fregante/daily-version-action@v2
         id: daily-version
-      - name: build
+      - name: build # NOTE: temporarily disable popup
         run: |
-          yarn export
+          yarn build
+          rm -rf ./extensions/popup
       - name: Update manifest.json
         run: |
           npx dot-json@1 extensions/manifest.json version ${{ steps.daily-version.outputs.version }}
