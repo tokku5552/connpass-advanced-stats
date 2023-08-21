@@ -22,7 +22,7 @@ yarn install
 yarn build
 ```
 
-ローカル環境でデバッグを行うためには、chrome 拡張機能の設定画面で`デベロッパーモード`を ON にした上で、`extensions`フォルダを chrome の拡張機能の`パッケージ化されていない拡張機能を読み込む`というところで指定すると、使えるようになります。
+ローカル環境でデバッグを行うためには、chrome 拡張機能の設定画面で`デベロッパーモード`を ON にした上で、`パッケージ化されていない拡張機能を読み込む`というところで`extensions`フォルダを指定すると、使えるようになります。
 
 FYI: [React でサクッと chrome の拡張機能をつくる](<https://zenn.dev/tokku5552/articles/how-to-make-chrome-extension#%E4%BD%BF%E3%81%84%E6%96%B9(%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%93%E3%83%AB%E3%83%89)>)
 
