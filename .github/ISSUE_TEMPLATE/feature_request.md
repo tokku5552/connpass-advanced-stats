@@ -6,14 +6,14 @@ labels: "enhancement"
 assignees: ""
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## 概要
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+追加すべき機能の内容を完結に記述してください。
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## 検討した代替案について説明してください
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+検討した代替案があれば記載してください。
+
+## 備考
+
+その他の情報があれば記載してください。
