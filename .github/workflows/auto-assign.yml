@@ -8,10 +8,12 @@ jobs:
   assign:
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    if: ${{ toJSON(github.event.pull_request.assignees) == '[]' }}
+
     steps:
       - run: cat $GITHUB_EVENT_PATH
-      - run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
+      - name: Add assignee
+        if: endsWith(${{ github.actor}}, '[bot]')
+        run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
