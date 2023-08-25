@@ -2,7 +2,7 @@ name: auto assign
 
 on:
   pull_request:
-    types: [opened, unassigned]
+    types: [opened, unassigned, synchronize, edited]
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -16,6 +16,7 @@ jobs:
     timeout-minutes: 1
     steps:
       - run: cat $GITHUB_EVENT_PATH
+      - run: echo ${{ endsWith( '$ASSIGNEE', '[bot]') }}
       - name: Add assignee
-        if: ${{ endsWith( '$ASSIGNEE', '[bot]') != 'true' }}
+        if: endsWith( '$ASSIGNEE', '[bot]') != 'true'
         run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
