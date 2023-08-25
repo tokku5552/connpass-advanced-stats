@@ -16,8 +16,8 @@ jobs:
     timeout-minutes: 1
     steps:
       - run: cat $GITHUB_EVENT_PATH
-      - run: endsWith( '$ASSIGNEE', '[bot]')
-      - run: endsWith( 'renovate[bot]', '[bot]')
+      - run: echo ${{ endsWith( '$ASSIGNEE', '[bot]') }}
+      - run: echo ${{ endsWith( 'renovate[bot]', '[bot]') }}
       - name: Add assignee
         if: ${{ endsWith( '$ASSIGNEE', '[bot]') != 'true' }}
         run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
