@@ -8,7 +8,7 @@ jobs:
   assign:
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    if: ${{ !(github.actor == 'dependabot[bot]' || github.actor == 'github-actions[bot]' || github.actor == 'renovate[bot]') }}
+    if: endsWith(${{ github.actor}}, '[bot]')
     steps:
       - run: cat $GITHUB_EVENT_PATH
       - run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
@@ -17,13 +17,3 @@ jobs:
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.pull_request.number }}
           ASSIGNEE: ${{ github.event.pull_request.user.login }}
-  post-assign:
-    needs: assign
-    runs-on: ubuntu-latest
-    timeout-minutes: 1
-    steps:
-      - run: echo "assignee added"
-      - run: cat $GITHUB_EVENT_PATH
-      - run: echo ${{ github.event.pull_request.assignees }}
-      - run: cat ${{ github.event_path }} | jq '.pull_request.assignees'
-      - run: echo ${{ toJSON(github.event.pull_request.assignees)}}
