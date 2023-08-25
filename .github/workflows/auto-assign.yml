@@ -17,5 +17,5 @@ jobs:
     steps:
       - run: cat $GITHUB_EVENT_PATH
       - name: Add assignee
-        if: ${{ endsWith( '$ASSIGNEE', '[bot]') == false}}
+        if: ${{ endsWith( '$ASSIGNEE', '[bot]') != 'true' }}
         run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
