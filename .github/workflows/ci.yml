@@ -3,7 +3,8 @@ on:
   pull_request:
     branches:
       - main
-      # - develop
+      - develop
+
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -20,6 +21,7 @@ jobs:
           path: "**/node_modules"
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
       - name: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           yarn install
   lint:
