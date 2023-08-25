@@ -11,8 +11,9 @@ jobs:
 
     steps:
       - run: cat $GITHUB_EVENT_PATH
+      - run: echo ${{ github.actor }}
       - name: Add assignee
-        if: endsWith(${{ github.actor}}, '[bot]')
+        if: endsWith(${{ github.actor }}, '[bot]')
         run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
         env:
           GH_TOKEN: ${{ github.token }}
