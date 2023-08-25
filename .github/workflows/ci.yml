@@ -4,6 +4,12 @@ on:
     branches:
       - main
       - develop
+    paths:
+      - .github/workflows/ci.yml
+      - package.json
+      - yarn.lock
+      - popup/**
+      - scripts/**
 
 jobs:
   prepare:
