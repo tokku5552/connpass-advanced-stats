@@ -8,7 +8,7 @@ jobs:
   assign:
     runs-on: ubuntu-latest
     timeout-minutes: 1
-    if: ${{ toJSON(github.event.pull_request.assignees) == '[]' }}
+    if: ${{ !(github.actor == 'dependabot[bot]' || github.actor == 'github-actions[bot]' || github.actor == 'renovate[bot]') }}
     steps:
       - run: cat $GITHUB_EVENT_PATH
       - run: gh pr edit $NUMBER --add-assignee $ASSIGNEE
@@ -23,4 +23,5 @@ jobs:
     timeout-minutes: 1
     steps:
       - run: echo "assignee added"
+      - run: cat ${{ github.event_path }} | jq '.pull_request.assignees
       - run: echo ${{ toJSON(github.event.pull_request.assignees)}}
