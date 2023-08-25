@@ -2,7 +2,7 @@ name: auto assign
 
 on:
   pull_request:
-    types: [opened, unassigned]
+    types: [opened, unassigned, synchronize, edited]
 
 env:
   GH_TOKEN: ${{ github.token }}
