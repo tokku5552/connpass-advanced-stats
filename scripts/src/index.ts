@@ -30,18 +30,33 @@ const createConversionUUElement = (value: number) => {
   return element;
 };
 
+const getNumberOnTheScreenByClassName = (className: string) =>
+  new Promise<number>((resolve) => {
+    const elem = document.getElementsByClassName(className)[0];
+
+    const textContent = elem?.textContent.trim() ?? '';
+    if (textContent !== '') {
+      resolve(+textContent);
+      return;
+    }
+
+    const observer = new MutationObserver(([{ target }]) => {
+      observer.disconnect();
+      resolve(+target.textContent);
+    });
+    observer.observe(elem, { childList: true });
+  });
+
 // CVR書き込み
-onReady(() => {
+onReady(async () => {
   const eventStatsElements = document.getElementsByClassName(
     'EventStatsHero stats_hero_area flex-row'
   );
-  const pageview =
-    +document.getElementsByClassName('PageviewsHero num')[0].innerHTML;
-  const visitor =
-    +document.getElementsByClassName('VisitorsHero num')[0].innerHTML;
-  const participation = +document.getElementsByClassName(
+  const pageview = await getNumberOnTheScreenByClassName('PageviewsHero num');
+  const visitor = await getNumberOnTheScreenByClassName('VisitorsHero num');
+  const participation = await getNumberOnTheScreenByClassName(
     'ParticipationsHero num'
-  )[0].innerHTML;
+  );
 
   const conversionRatePV = Math.floor((participation / pageview) * 1000) / 10;
   const conversionRatePVElement = createConversionPVElement(conversionRatePV);
