@@ -1124,10 +1124,10 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/chrome@^0.0.284":
-  version "0.0.284"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.284.tgz#3fc101148964f938239e91c2952ce17fe70982b3"
-  integrity sha512-nQwZQVfepZcUvKKGByOh/p4ZKaaNP1BaLaVjcAXO4jr81z3JBehyXBc/RqS30+D6W7RrMYKNKBCFsQLuhX0OSA==
+"@types/chrome@^0.0.286":
+  version "0.0.286"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.286.tgz#ee127c03bd394893f1e99f2302a812b77f3db91a"
+  integrity sha512-Valy/wWWAwfnxLL1zPM3KJEUM3xbO3O67sNT4SjHUSn39QwIhnXBfIQuJNchJfmb+5qKV+zv9O6fy6nq8cO+aQ==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
