@@ -1124,10 +1124,10 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/chrome@^0.0.290":
-  version "0.0.290"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.290.tgz#570e511360d1b92cf24773af0c3b23b6e1f13152"
-  integrity sha512-N92vsAdlwoWameDQ8D4K0EZXXvxsJ1+gJg+4TWjUUsZ6gpontVmwl1XVtysA3mso45Fcn5UPiX/yqiT8GcBV3A==
+"@types/chrome@^0.0.293":
+  version "0.0.293"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.293.tgz#1494b081b91521d749d2a5e3602eae202729991a"
+  integrity sha512-pghCOLVHsnePWcMEHCxkAfMRx8qJWmj4lUoyF3ZpANniKz8AucIGLSld7smsrTdLUkk/p5JjOCGVDRdUDHx+uA==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
@@ -5317,9 +5317,9 @@ typed-array-length@^1.0.4:
     is-typed-array "^1.1.9"
 
 typescript@^5.1.6:
-  version "5.7.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.2.tgz#3169cf8c4c8a828cde53ba9ecb3d2b1d5dd67be6"
-  integrity sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.3.tgz#919b44a7dbb8583a9b856d162be24a54bf80073e"
+  integrity sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
