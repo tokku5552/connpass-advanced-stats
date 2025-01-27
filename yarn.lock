@@ -380,9 +380,9 @@
     framesync "6.1.2"
 
 "@chakra-ui/react@^2.4.4":
-  version "2.10.4"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/react/-/react-2.10.4.tgz#3f9aa815d1f52e91961c22b0297d2fbe53fdcd99"
-  integrity sha512-XyRWnuZ1Uw7Mlj5pKUGO5/WhnIHP/EOrpy6lGZC1yWlkd0eIfIpYMZ1ALTZx4KPEdbBaes48dgiMT2ROCqLhkA==
+  version "2.10.5"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/react/-/react-2.10.5.tgz#5da8ecc38fe02fbcf7ce270cc8938b76f18dac23"
+  integrity sha512-wCetfxT1iXWNmAwSLF1d0zyTQOQYswA3YJcw05grY1XEngO6956PScRB0Or5ZQJ6rGMcz5pcUhVgrb3q7AE+gQ==
   dependencies:
     "@chakra-ui/hooks" "2.4.3"
     "@chakra-ui/styled-system" "2.12.1"
@@ -1124,10 +1124,10 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/chrome@^0.0.293":
-  version "0.0.293"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.293.tgz#1494b081b91521d749d2a5e3602eae202729991a"
-  integrity sha512-pghCOLVHsnePWcMEHCxkAfMRx8qJWmj4lUoyF3ZpANniKz8AucIGLSld7smsrTdLUkk/p5JjOCGVDRdUDHx+uA==
+"@types/chrome@^0.0.299":
+  version "0.0.299"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.299.tgz#b3c0ee936b446570c2ad0afd73597a4eb1071f09"
+  integrity sha512-hPoHmFWUaKw2s3wDjUtMsvZqeh9lKL7nFQx6yaAYt7RxBKv/V3rDUaA4BgUR145nnpF6hpNhHaxhtcCSFJ5b7w==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
@@ -1219,10 +1219,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.1.tgz#178d58ee7e4834152b0e8b4d30cbfab578b9bb30"
   integrity sha512-4tT2UrL5LBqDwoed9wZ6N3umC4Yhz3W3FloMmiiG4JwmUJWpie0c7lcnUNd4gtMKuDEO4wRVS8B6Xa0uMRsMKg==
 
-"@types/node@18.19.70":
-  version "18.19.70"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.70.tgz#5a77508f5568d16fcd3b711c8102d7a430a04df7"
-  integrity sha512-RE+K0+KZoEpDUbGGctnGdkrLFwi1eYKTlIHNl2Um98mUkGsm1u2Ff6Ltd0e8DktTtC98uy7rSj+hO8t/QuLoVQ==
+"@types/node@18.19.71":
+  version "18.19.71"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.71.tgz#96d4f0a0be735ead6c8998c62a4b2c0012a5d09a"
+  integrity sha512-evXpcgtZm8FY4jqBSN8+DmOTcVkkvTmAayeo4Wf3m1xAruyVGzGuDh/Fb/WWX2yLItUiho42ozyJjB0dw//Tkw==
   dependencies:
     undici-types "~5.26.4"
 
