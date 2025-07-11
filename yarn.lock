@@ -1124,10 +1124,10 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/chrome@^0.0.328":
-  version "0.0.328"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.328.tgz#a725c4147462a6e8ebf78acd575a9413574f9eb9"
-  integrity sha512-Mv/TQMFMpGBTqWQOQsYcAd3qDncH/Q+Dz7iJVjkwb98uLeM8xZVEYH3VR5Jh+su9IBksbumJeazakK8WqBAgFA==
+"@types/chrome@^0.0.329":
+  version "0.0.329"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.329.tgz#7a27c1287be43dae73a428570db20ae79779896f"
+  integrity sha512-jAZX4QMnAa1bTSWoQ5/EhhiY1t+1B7a5ZCY5ZEs61tWiQfxXAkfBSxCkQWhGxJoiq/4b4vtcmYEebNEmlLKecg==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
@@ -1219,10 +1219,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.1.tgz#178d58ee7e4834152b0e8b4d30cbfab578b9bb30"
   integrity sha512-4tT2UrL5LBqDwoed9wZ6N3umC4Yhz3W3FloMmiiG4JwmUJWpie0c7lcnUNd4gtMKuDEO4wRVS8B6Xa0uMRsMKg==
 
-"@types/node@18.19.113":
-  version "18.19.113"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.113.tgz#f48df552584e47fb4a8bc0b39e1377112be105de"
-  integrity sha512-TmSTE9vyebJ9vSEiU+P+0Sp4F5tMgjiEOZaQUW6wA3ODvi6uBgkHQ+EsIu0pbiKvf9QHEvyRCiaz03rV0b+IaA==
+"@types/node@18.19.115":
+  version "18.19.115"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.115.tgz#cd94caf14472021b4443c99bcd7aac6bb5c4f672"
+  integrity sha512-kNrFiTgG4a9JAn1LMQeLOv3MvXIPokzXziohMrMsvpYgLpdEt/mMiVYc4sGKtDfyxM5gIDF4VgrPRyCw4fHOYg==
   dependencies:
     undici-types "~5.26.4"
 
@@ -4621,9 +4621,9 @@ react-focus-lock@^2.9.6:
     use-sidecar "^1.1.2"
 
 react-hook-form@^7.41.0:
-  version "7.59.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.59.0.tgz#69e7ebc4db933f7aa0ef0973ec8e09f299e5f24e"
-  integrity sha512-kmkek2/8grqarTJExFNjy+RXDIP8yM+QTl3QL6m6Q8b2bih4ltmiXxH7T9n+yXNK477xPh5yZT/6vD8sYGzJTA==
+  version "7.60.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.60.0.tgz#cc4bfa2952d602fc8f1dcf2d4929fcb6d9cdc782"
+  integrity sha512-SBrYOvMbDB7cV8ZfNpaiLcgjH/a1c7aK0lK+aNigpf4xWLO8q+o4tcvVurv3c4EOyzn/3dCsYt4GKD42VvJ/+A==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
