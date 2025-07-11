@@ -1219,10 +1219,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.1.tgz#178d58ee7e4834152b0e8b4d30cbfab578b9bb30"
   integrity sha512-4tT2UrL5LBqDwoed9wZ6N3umC4Yhz3W3FloMmiiG4JwmUJWpie0c7lcnUNd4gtMKuDEO4wRVS8B6Xa0uMRsMKg==
 
-"@types/node@18.19.115":
-  version "18.19.115"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.115.tgz#cd94caf14472021b4443c99bcd7aac6bb5c4f672"
-  integrity sha512-kNrFiTgG4a9JAn1LMQeLOv3MvXIPokzXziohMrMsvpYgLpdEt/mMiVYc4sGKtDfyxM5gIDF4VgrPRyCw4fHOYg==
+"@types/node@18.19.118":
+  version "18.19.118"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.19.118.tgz#e8ad99b8fb0c350773dfd9c5acda1a4bfb84a688"
+  integrity sha512-hIPK0hSrrcaoAu/gJMzN3QClXE4QdCdFvaenJ0JsjIbExP1JFFVH+RHcBt25c9n8bx5dkIfqKE+uw6BmBns7ug==
   dependencies:
     undici-types "~5.26.4"
 
