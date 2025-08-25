@@ -3,6 +3,9 @@
   "name": "connpass advanced stats",
   "description": "connpass advanced stats",
   "version": "1.0",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "content_scripts": [
     {
       "matches": [
