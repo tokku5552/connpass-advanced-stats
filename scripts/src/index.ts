@@ -30,40 +30,61 @@ const createConversionUUElement = (value: number) => {
   return element;
 };
 
-const getNumberOnTheScreenByClassName = (className: string) =>
-  new Promise<number>((resolve) => {
-    const elem = document.getElementsByClassName(className)[0];
+export const getNumberOnTheScreenByClassName = (
+  className: string,
+  retries = 5,
+  interval = 100
+) =>
+  new Promise<number>((resolve, reject) => {
+    const attempt = (remaining: number) => {
+      const elem = document.getElementsByClassName(className)[0] as
+        | HTMLElement
+        | undefined;
 
-    const textContent = elem?.textContent.trim() ?? '';
-    if (textContent !== '') {
-      resolve(+textContent);
-      return;
-    }
+      if (!elem) {
+        if (remaining <= 0) {
+          reject(new Error(`Element with class ${className} not found`));
+          return;
+        }
+        setTimeout(() => attempt(remaining - 1), interval);
+        return;
+      }
 
-    const observer = new MutationObserver(([{ target }]) => {
-      observer.disconnect();
-      resolve(+target.textContent);
-    });
-    observer.observe(elem, { childList: true });
+      const textContent = elem.textContent?.trim() ?? '';
+      if (textContent !== '') {
+        resolve(+textContent);
+        return;
+      }
+
+      const observer = new MutationObserver(([{ target }]) => {
+        observer.disconnect();
+        resolve(+(target as HTMLElement).textContent!);
+      });
+      observer.observe(elem, { childList: true });
+    };
+
+    attempt(retries);
   });
 
 // CVR書き込み
-onReady(async () => {
-  const eventStatsElements = document.getElementsByClassName(
-    'EventStatsHero stats_hero_area flex-row'
-  );
-  const pageview = await getNumberOnTheScreenByClassName('PageviewsHero num');
-  const visitor = await getNumberOnTheScreenByClassName('VisitorsHero num');
-  const participation = await getNumberOnTheScreenByClassName(
-    'ParticipationsHero num'
-  );
+if (process.env.NODE_ENV !== 'test') {
+  onReady(async () => {
+    const eventStatsElements = document.getElementsByClassName(
+      'EventStatsHero stats_hero_area flex-row'
+    );
+    const pageview = await getNumberOnTheScreenByClassName('PageviewsHero num');
+    const visitor = await getNumberOnTheScreenByClassName('VisitorsHero num');
+    const participation = await getNumberOnTheScreenByClassName(
+      'ParticipationsHero num'
+    );
 
-  const conversionRatePV = Math.floor((participation / pageview) * 1000) / 10;
-  const conversionRatePVElement = createConversionPVElement(conversionRatePV);
+    const conversionRatePV = Math.floor((participation / pageview) * 1000) / 10;
+    const conversionRatePVElement = createConversionPVElement(conversionRatePV);
 
-  const conversionRateUU = Math.floor((participation / visitor) * 1000) / 10;
-  const conversionRateUUElement = createConversionUUElement(conversionRateUU);
+    const conversionRateUU = Math.floor((participation / visitor) * 1000) / 10;
+    const conversionRateUUElement = createConversionUUElement(conversionRateUU);
 
-  eventStatsElements[0].appendChild(conversionRatePVElement);
-  eventStatsElements[0].appendChild(conversionRateUUElement);
-});
+    eventStatsElements[0].appendChild(conversionRatePVElement);
+    eventStatsElements[0].appendChild(conversionRateUUElement);
+  });
+}
