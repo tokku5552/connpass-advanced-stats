@@ -30,6 +30,29 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           yarn install
+  audit:
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: cache-node-modules-${{ hashFiles('yarn.lock') }}
+      - name: npm audit
+        run: |
+          yarn npm audit --all --json > audit.json || true
+          if [ $(jq '.metadata.vulnerabilities | values | add' audit.json) -gt 0 ]; then
+            echo 'Vulnerabilities found:'
+            jq '.metadata.vulnerabilities' audit.json
+            exit 1
+          fi
   lint:
     runs-on: ubuntu-latest
     needs: prepare
