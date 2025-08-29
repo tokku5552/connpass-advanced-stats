@@ -13,9 +13,9 @@
     ]
   },
   "scripts": {
-    "dev": "concurrently -k \"yarn workspace popup dev\" ",
-    "lint": "concurrently -k \"yarn workspace popup lint\" ",
-    "test": "concurrently -k \"yarn workspace popup test\" ",
+    "dev": "yarn workspaces run dev",
+    "lint": "yarn workspaces run lint",
+    "test": "yarn workspaces run test",
     "build": "yarn build:prebuild && yarn build:main",
     "build:main": "yarn workspace popup build && yarn workspace scripts build && cp -pr scripts/out/* extensions/scripts",
     "build:prebuild": "rimraf extensions/scripts && mkdir -p extensions/scripts"
