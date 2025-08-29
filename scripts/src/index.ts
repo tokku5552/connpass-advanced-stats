@@ -60,7 +60,7 @@ const getNumberOnTheScreenByClassName = (className: string) =>
 
     const observer = new MutationObserver(([{ target }]) => {
       observer.disconnect();
-      resolve(+target.textContent);
+      resolve(Number(target.textContent ?? 0));
     });
     observer.observe(elem, { childList: true });
   });
