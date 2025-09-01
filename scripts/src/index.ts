@@ -8,24 +8,42 @@ const onReady = (cb: () => void) => {
 
 const createConversionPVElement = (value: number) => {
   const element = document.createElement('div');
-  element.innerHTML = `
-    <div class="list conversions">
-      <p>CVR(PV)</p>
-      <p class="ConversionHero num">${value}%</p>
-    </div>
-    `;
+
+  const list = document.createElement('div');
+  list.className = 'list conversions';
+
+  const label = document.createElement('p');
+  label.textContent = 'CVR(PV)';
+
+  const valueElem = document.createElement('p');
+  valueElem.className = 'ConversionHero num';
+  valueElem.textContent = `${value}%`;
+
+  list.appendChild(label);
+  list.appendChild(valueElem);
+  element.appendChild(list);
+
   element.style.color = '#ff9900';
   return element;
 };
 
 const createConversionUUElement = (value: number) => {
   const element = document.createElement('div');
-  element.innerHTML = `
-    <div class="list conversions">
-      <p>CVR(UU)</p>
-      <p class="ConversionHero num">${value}%</p>
-    </div>
-    `;
+
+  const list = document.createElement('div');
+  list.className = 'list conversions';
+
+  const label = document.createElement('p');
+  label.textContent = 'CVR(UU)';
+
+  const valueElem = document.createElement('p');
+  valueElem.className = 'ConversionHero num';
+  valueElem.textContent = `${value}%`;
+
+  list.appendChild(label);
+  list.appendChild(valueElem);
+  element.appendChild(list);
+
   element.style.color = '#0090c9';
   return element;
 };
@@ -42,7 +60,7 @@ const getNumberOnTheScreenByClassName = (className: string) =>
 
     const observer = new MutationObserver(([{ target }]) => {
       observer.disconnect();
-      resolve(+target.textContent);
+      resolve(Number(target.textContent ?? 0));
     });
     observer.observe(elem, { childList: true });
   });

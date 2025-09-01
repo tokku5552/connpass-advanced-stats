@@ -12,8 +12,11 @@ on:
       - scripts/**
 
 jobs:
-  prepare:
+  ci:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        task: [lint, test, build]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
@@ -107,12 +110,13 @@ jobs:
         run: |
           yarn build
       - name: Update manifest.json
-        run: |
-          npx dot-json@1 extensions/manifest.json version dummy
+        if: matrix.task == 'build'
+        run: npx dot-json@1 extensions/manifest.json version dummy
       - name: Archive
-        run: |
-          zip -r extension.zip ./extensions
+        if: matrix.task == 'build'
+        run: zip -r extension.zip ./extensions
       - name: Check Archive
+        if: matrix.task == 'build'
         run: |
           rm -rf ./extensions
           unzip extension.zip
