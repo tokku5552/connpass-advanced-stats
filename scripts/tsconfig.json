@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "sourceMap": true,
     "esModuleInterop": true,
+    "strict": true,
     "types": ["node", "jest"],
     "rootDir": "src",
     "outDir": "out"
