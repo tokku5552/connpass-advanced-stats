@@ -12,11 +12,8 @@ on:
       - scripts/**
 
 jobs:
-  ci:
+  prepare:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        task: [lint, test, build]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
@@ -33,6 +30,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           yarn install
+
   audit:
     runs-on: ubuntu-latest
     needs: prepare
@@ -48,6 +46,10 @@ jobs:
         with:
           path: "**/node_modules"
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
+      - name: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn install
       - name: npm audit
         run: |
           yarn npm audit --all --json > audit.json || true
@@ -56,6 +58,7 @@ jobs:
             jq '.metadata.vulnerabilities' audit.json
             exit 1
           fi
+
   lint:
     runs-on: ubuntu-latest
     needs: prepare
@@ -71,8 +74,13 @@ jobs:
         with:
           path: "**/node_modules"
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
+      - name: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn install
       - name: yarn lint
         run: yarn lint
+
   test:
     runs-on: ubuntu-latest
     needs: prepare
@@ -88,9 +96,14 @@ jobs:
         with:
           path: "**/node_modules"
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
+      - name: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn install
       - name: test
         run: |
           yarn test
+
   build:
     runs-on: ubuntu-latest
     needs: prepare
@@ -106,17 +119,18 @@ jobs:
         with:
           path: "**/node_modules"
           key: cache-node-modules-${{ hashFiles('yarn.lock') }}
+      - name: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn install
       - name: build
         run: |
           yarn build
       - name: Update manifest.json
-        if: matrix.task == 'build'
         run: npx dot-json@1 extensions/manifest.json version dummy
       - name: Archive
-        if: matrix.task == 'build'
         run: zip -r extension.zip ./extensions
       - name: Check Archive
-        if: matrix.task == 'build'
         run: |
           rm -rf ./extensions
           unzip extension.zip
