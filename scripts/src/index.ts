@@ -1,4 +1,4 @@
-const onReady = (cb: () => void) => {
+export const onReady = (cb: () => void) => {
   if (document.readyState !== 'loading') {
     cb();
   } else {
@@ -6,26 +6,44 @@ const onReady = (cb: () => void) => {
   }
 };
 
-const createConversionPVElement = (value: number) => {
+export const createConversionPVElement = (value: number) => {
   const element = document.createElement('div');
-  element.innerHTML = `
-    <div class="list conversions">
-      <p>CVR(PV)</p>
-      <p class="ConversionHero num">${value}%</p>
-    </div>
-    `;
+
+  const list = document.createElement('div');
+  list.className = 'list conversions';
+
+  const label = document.createElement('p');
+  label.textContent = 'CVR(PV)';
+
+  const valueElem = document.createElement('p');
+  valueElem.className = 'ConversionHero num';
+  valueElem.textContent = `${value}%`;
+
+  list.appendChild(label);
+  list.appendChild(valueElem);
+  element.appendChild(list);
+
   element.style.color = '#ff9900';
   return element;
 };
 
-const createConversionUUElement = (value: number) => {
+export const createConversionUUElement = (value: number) => {
   const element = document.createElement('div');
-  element.innerHTML = `
-    <div class="list conversions">
-      <p>CVR(UU)</p>
-      <p class="ConversionHero num">${value}%</p>
-    </div>
-    `;
+
+  const list = document.createElement('div');
+  list.className = 'list conversions';
+
+  const label = document.createElement('p');
+  label.textContent = 'CVR(UU)';
+
+  const valueElem = document.createElement('p');
+  valueElem.className = 'ConversionHero num';
+  valueElem.textContent = `${value}%`;
+
+  list.appendChild(label);
+  list.appendChild(valueElem);
+  element.appendChild(list);
+
   element.style.color = '#0090c9';
   return element;
 };
@@ -68,6 +86,32 @@ export const getNumberOnTheScreenByClassName = (
 
 // CVR書き込み
 if (process.env.NODE_ENV !== 'test') {
+export const getNumberOnTheScreenByClassName = (className: string) =>
+  new Promise<number>((resolve) => {
+    const elem = document.getElementsByClassName(className)[0];
+
+    if (elem && elem.textContent) {
+      const textContent = elem.textContent.trim();
+      if (textContent !== '') {
+        resolve(+textContent);
+        return;
+      }
+    }
+
+    if (!elem) {
+      resolve(0);
+      return;
+    }
+
+    const observer = new MutationObserver(([{ target }]) => {
+      observer.disconnect();
+      resolve(Number((target as Element).textContent ?? 0));
+    });
+    observer.observe(elem, { childList: true });
+  });
+
+// CVR書き込み（ブラウザ環境でのみ実行）
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   onReady(async () => {
     const eventStatsElements = document.getElementsByClassName(
       'EventStatsHero stats_hero_area flex-row'
@@ -84,7 +128,14 @@ if (process.env.NODE_ENV !== 'test') {
     const conversionRateUU = Math.floor((participation / visitor) * 1000) / 10;
     const conversionRateUUElement = createConversionUUElement(conversionRateUU);
 
+<<<<<<< HEAD
     eventStatsElements[0].appendChild(conversionRatePVElement);
     eventStatsElements[0].appendChild(conversionRateUUElement);
+=======
+    if (eventStatsElements[0]) {
+      eventStatsElements[0].appendChild(conversionRatePVElement);
+      eventStatsElements[0].appendChild(conversionRateUUElement);
+    }
+>>>>>>> develop
   });
 }
