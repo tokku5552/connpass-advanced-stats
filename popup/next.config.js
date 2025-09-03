@@ -4,6 +4,8 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   assetPrefix: "./",
+  output: "export",
+  distDir: "../extensions/popup",
 };
 
 module.exports = nextConfig;
