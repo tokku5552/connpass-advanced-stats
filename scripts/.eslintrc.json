@@ -1,7 +1,8 @@
 {
   "env": {
     "es2021": true,
-    "node": true
+    "node": true,
+    "browser": true
   },
   "extends": [
     "eslint:recommended",
@@ -12,5 +13,6 @@
     "ecmaVersion": 13,
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {},
+  "ignorePatterns": ["out/", "node_modules/"]
 }
