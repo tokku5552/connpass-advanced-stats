@@ -1212,9 +1212,9 @@
     "@babel/types" "^7.20.7"
 
 "@types/chrome@^0.1.0":
-  version "0.1.32"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.1.32.tgz#58c01860a390dfe9cfab0a1334d33d505b4f851f"
-  integrity sha512-n5Cqlh7zyAqRLQWLXkeV5K/1BgDZdVcO/dJSTa8x+7w+sx7m73UrDmduAptg4KorMtyTW2TNnPu8RGeaDMKNGg==
+  version "0.1.37"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.1.37.tgz#c02e80f923011d27a728c17da9c9f3154764c16d"
+  integrity sha512-IJE4ceuDO7lrEuua7Pow47zwNcI8E6qqkowRP7aFPaZ0lrjxh6y836OPqqkIZeTX64FTogbw+4RNH0+QrweCTQ==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
