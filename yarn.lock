@@ -1752,9 +1752,9 @@ axe-core@^4.6.2:
   integrity sha512-zIURGIS1E1Q4pcrMjp+nnEh+16G56eG/MUllJH8yEvw7asDo7Ac9uhC9KIH5jzpITueEZolfYglnCGIuSBz39g==
 
 axios@^1.4.0:
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.17.0.tgz#ae5a1164a4f719942cd73c67e6a3f62d3ccb8f2b"
-  integrity sha512-J8SwNxprqqpbfenehxWYXE7CW+wM1BB4w3+N+g+/Wx40xM4rsLrfPmHHxSWIxJLYDgSY/HqlFPIYb2/S3rxafw==
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.18.0.tgz#8a7f8854af280fcaae063272df2ed9f3837d2398"
+  integrity sha512-E32NzpYKp++W7XRe52rHiXV2ehxmh3wbdgO7MHeFM+vqxLBYHzt0ElkiImtOBxtOmyp0yoC8C6uESVV84Y2/hw==
   dependencies:
     follow-redirects "^1.16.0"
     form-data "^4.0.5"
@@ -5177,9 +5177,9 @@ shebang-regex@^3.0.0:
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
 shell-quote@^1.6.1, shell-quote@^1.7.3:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.8.1.tgz#6dbf4db75515ad5bac63b4f1894c3a154c766680"
-  integrity sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.8.4.tgz#2edd9a4dcefc96649e2e2cb12f637b1f1d92a190"
+  integrity sha512-VsC6n6vz1ihYYyZZwX7YZSF5l5x36ca17OC+a69h94YqB7X6XLwf+5MOgynYir2SLFUbl8gIYvBo8K8RoNQ6bQ==
 
 side-channel@^1.0.4:
   version "1.0.4"
