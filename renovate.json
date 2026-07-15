@@ -11,6 +11,10 @@
   "major": {
     "enabled": false
   },
+  "minor": {
+    "automerge": true
+  },
+  "platformAutomerge": true,
   "packageRules": [
     {
       "groupName": "linters",
