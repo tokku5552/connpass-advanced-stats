@@ -20,6 +20,10 @@
     "build:main": "yarn workspace popup build && yarn workspace scripts build && cp -pr scripts/out/* extensions/scripts",
     "build:prebuild": "rimraf extensions/scripts && mkdir -p extensions/scripts"
   },
+  "resolutions": {
+    "postcss": "^8.5.23",
+    "sharp": "^0.35.3"
+  },
   "devDependencies": {
     "concurrently": "^7.6.0",
     "rimraf": "^3.0.2 ",
