@@ -12,6 +12,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: develop
+          # Use a PAT instead of GITHUB_TOKEN. Pull requests opened by
+          # github-actions[bot] have their workflow runs held in action_required
+          # until someone clicks "Approve and run", so CI never runs on its own.
+          token: ${{ secrets.AUTOMATION_PAT }}
 
       - name: Set current datetime as env variable
         env:
@@ -24,15 +28,13 @@ jobs:
       - name: Push Branch
         run: git push origin release/gha_${{ env.CURRENT_DATETIME }}
 
-      - name: Install Hub
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y hub
-
       - name: Create Pull Request
         env:
-          REVIEWERS: "tokku5552"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTOMATION_PAT }}
           BRANCH_NAME: release/gha_${{ env.CURRENT_DATETIME }}
         run: |
-          hub pull-request -m "[bot(create_release_pr)]: created at ${{ env.CURRENT_DATETIME }}" -b main -h $BRANCH_NAME  -r "$REVIEWERS"
+          gh pr create \
+            --base main \
+            --head "$BRANCH_NAME" \
+            --title "[bot(create_release_pr)]: created at ${{ env.CURRENT_DATETIME }}" \
+            --body "Scheduled release pull request (develop -> main)."
