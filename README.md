@@ -9,8 +9,8 @@
 
 | runtime | version  |
 | ------- | -------- |
-| node    | v18.12.1 |
-| npm     | 8.19.2   |
+| node    | v22 (.node-version) |
+| npm     | 10.x (bundled with Node 22) |
 | yarn    | 1.22.19  |
 
 ## Getting Started
